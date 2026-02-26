@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Đăng bài đồ nhặt được - Lost & Found System</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="2.css" />
+  </head>
+  <body>
+    <div class="mn-hnh-ng-bi-nht">
+      <header class="header">
+        <nav class="navigation">
+          <div class="logo-container">
+            <div class="logo-icon">L&F</div>
+            <div class="logo-text">LOST &amp; FOUND SYSTEM</div>
+          </div>
+          <ul class="nav-menu">
+            <li class="nav-item"><a href="#" class="nav-link">Khám phá</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Danh sách đồ thất lạc</a></li>
+            <li class="nav-item"><a href="#" class="nav-link nav-link-active">Đăng tin</a></li>
+          </ul>
+          <div class="user-actions">
+            <div class="school-badge">
+              <span class="school-text">DUE</span>
+            </div>
+            <button class="notification-button" aria-label="Thông báo">
+              <span class="notification-icon"></span>
+              <span class="notification-badge">3</span>
+            </button>
+            <button class="user-menu-button" aria-label="Menu người dùng">
+              <span class="user-avatar">M</span>
+              <span class="user-name">Chào, Minh Anh</span>
+              <span class="dropdown-icon"></span>
+            </button>
+          </div>
+        </nav>
+      </header>
+      <main class="main-content">
+        <div class="back-link-container">
+          <a href="#" class="back-link">Quay lại</a>
+        </div>
+        <div class="form-container">
+          <h1 class="page-title">Đăng bài đồ nhặt được</h1>
+          <form class="post-form" id="postForm" novalidate>
+            <div class="form-tabs">
+              <button type="button" class="tab-button" role="tab" aria-selected="false">Đồ bị mất</button>
+              <button type="button" class="tab-button tab-button-active" role="tab" aria-selected="true">
+                Đồ nhặt được
+              </button>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="itemGroup" class="form-label">Nhóm đồ <span class="required">*</span></label>
+                <select id="itemGroup" name="itemGroup" class="form-select" required aria-required="true">
+                  <option value="">Chọn nhóm đồ</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="itemType" class="form-label">Loại đồ <span class="required">*</span></label>
+                <select id="itemType" name="itemType" class="form-select" required aria-required="true" disabled>
+                  <option value="">Chọn nhóm đồ trước</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="itemColor" class="form-label">Màu sắc <span class="required">*</span></label>
+                <select id="itemColor" name="itemColor" class="form-select" required aria-required="true">
+                  <option value="">Chọn màu sắc</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="areaType" class="form-label">Loại khu vực nhặt <span class="required">*</span></label>
+                <select id="areaType" name="areaType" class="form-select" required aria-required="true">
+                  <option value="">Chọn loại khu vực</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="building" class="form-label">Khu/Dãy/Tòa <span class="required">*</span></label>
+                <select id="building" name="building" class="form-select" required aria-required="true" disabled>
+                  <option value="">Chọn loại khu vực trước</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="specificLocation" class="form-label">Địa điểm cụ thể</label>
+                <select id="specificLocation" name="specificLocation" class="form-select" disabled>
+                  <option value="">Chọn khu/dãy/tòa trước</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group form-group-full">
+              <label for="identifyingFeatures" class="form-label"
+                >Đặc điểm nhận dạng <span class="required">*</span></label
+              >
+              <textarea
+                id="identifyingFeatures"
+                name="identifyingFeatures"
+                class="form-textarea"
+                placeholder="Mô tả đặc điểm nổi bật..."
+                required
+                aria-required="true"
+                rows="3"
+              ></textarea>
+            </div>
+            <div class="form-group form-group-full">
+              <label for="detailedDescription" class="form-label">Mô tả chi tiết</label>
+              <textarea
+                id="detailedDescription"
+                name="detailedDescription"
+                class="form-textarea form-textarea-large"
+                placeholder="Mô tả thêm thông tin chi tiết..."
+                rows="5"
+              ></textarea>
+            </div>
+            <div class="form-group form-group-full">
+              <label for="foundDateTime" class="form-label">Thời gian nhặt <span class="required">*</span></label>
+              <div class="datetime-input-wrapper">
+                <input
+                  type="datetime-local"
+                  id="foundDateTime"
+                  name="foundDateTime"
+                  class="form-input"
+                  placeholder="DD/MM/YYYY --:--"
+                  required
+                  aria-required="true"
+                />
+                <span class="datetime-icon" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="form-group form-group-full">
+              <label class="form-label">Hình ảnh (Tối đa 3 ảnh)</label>
+              <div class="image-upload-container">
+                <input
+                  type="file"
+                  id="imageUpload"
+                  name="images"
+                  class="image-upload-input"
+                  accept="image/png,image/jpeg"
+                  multiple
+                  aria-label="Tải ảnh lên"
+                />
+                <label for="imageUpload" class="image-upload-label">
+                  <span class="upload-icon" aria-hidden="true"></span>
+                  <span class="upload-text">Nhấn để tải ảnh lên</span>
+                  <span class="upload-hint">PNG, JPG tối đa 5MB mỗi ảnh</span>
+                </label>
+              </div>
+            </div>
+            <fieldset class="contact-methods-section">
+              <legend class="section-title">Phương thức liên hệ</legend>
+              <div class="contact-option">
+                <input type="checkbox" id="showPhone" name="contactMethods" value="phone" class="contact-checkbox" />
+                <label for="showPhone" class="contact-label">
+                  <span class="contact-title">Hiển thị số điện thoại</span>
+                  <span class="contact-description"
+                    >Người tìm đồ có thể liên hệ trực tiếp qua số điện thoại của bạn</span
+                  >
+                </label>
+              </div>
+              <div class="phone-display-container">
+                <div class="phone-display-label">Số điện thoại <span class="required">*</span></div>
+                <div class="phone-display-value">0905444123</div>
+              </div>
+              <div class="contact-option">
+                <input
+                  type="checkbox"
+                  id="showFacebook"
+                  name="contactMethods"
+                  value="facebook"
+                  class="contact-checkbox"
+                />
+                <label for="showFacebook" class="contact-label">
+                  <span class="contact-title">Hiển thị Facebook</span>
+                  <span class="contact-description">Người tìm đồ có thể liên hệ qua tài khoản Facebook của bạn</span>
+                </label>
+              </div>
+              <div class="contact-option">
+                <input
+                  type="checkbox"
+                  id="useVerification"
+                  name="contactMethods"
+                  value="verification"
+                  class="contact-checkbox"
+                />
+                <label for="useVerification" class="contact-label">
+                  <span class="contact-title">Ẩn thông tin liên hệ - Dùng câu hỏi xác minh</span>
+                  <span class="contact-description"
+                    >Chỉ hiển thị thông tin liên hệ sau khi người dùng trả lời đúng câu hỏi xác minh</span
+                  >
+                </label>
+              </div>
+            </fieldset>
+            <fieldset class="verification-section">
+              <legend class="section-title">Tạo câu hỏi xác minh (Tùy chọn)</legend>
+              <div class="form-group form-group-full">
+                <label for="verificationQuestion" class="form-label"
+                  >Câu hỏi xác minh <span class="required-conditional">*</span></label
+                >
+                <input
+                  type="text"
+                  id="verificationQuestion"
+                  name="verificationQuestion"
+                  class="form-input"
+                  placeholder='VD: "Màu sắc chính của đồ vật là gì?"'
+                />
+              </div>
+              <div class="answers-section">
+                <div class="answers-header">
+                  <span class="answers-title">Các đáp án</span>
+                  <span class="answers-hint"
+                    >(Tích chọn <strong class="highlight-text">một hoặc nhiều đáp án đúng</strong>)</span
+                  >
+                </div>
+                <div class="answer-item">
+                  <input type="checkbox" id="answer1Correct" name="correctAnswers" value="1" class="answer-checkbox" />
+                  <label
+                    for="answer1Correct"
+                    class="answer-checkbox-label"
+                    aria-label="Đánh dấu đáp án 1 là đúng"
+                  ></label>
+                  <input type="text" id="answer1" name="answers[]" class="answer-input" placeholder="Đáp án 1" />
+                </div>
+                <div class="answer-item">
+                  <input type="checkbox" id="answer2Correct" name="correctAnswers" value="2" class="answer-checkbox" />
+                  <label
+                    for="answer2Correct"
+                    class="answer-checkbox-label"
+                    aria-label="Đánh dấu đáp án 2 là đúng"
+                  ></label>
+                  <input type="text" id="answer2" name="answers[]" class="answer-input" placeholder="Đáp án 2" />
+                </div>
+                <div class="answer-item">
+                  <input type="checkbox" id="answer3Correct" name="correctAnswers" value="3" class="answer-checkbox" />
+                  <label
+                    for="answer3Correct"
+                    class="answer-checkbox-label"
+                    aria-label="Đánh dấu đáp án 3 là đúng"
+                  ></label>
+                  <input type="text" id="answer3" name="answers[]" class="answer-input" placeholder="Đáp án 3" />
+                  <button type="button" class="delete-answer-button" aria-label="Xóa đáp án 3">Xóa</button>
+                </div>
+                <button type="button" class="add-answer-button">
+                  <span class="add-icon" aria-hidden="true"></span>
+                  <span>Thêm đáp án</span>
+                </button>
+              </div>
+              <div class="info-box">
+                <span class="info-icon" aria-hidden="true">i</span>
+                <p class="info-text">
+                  Tạo câu hỏi mà chỉ chủ sở hữu mới biết câu trả lời. Vui lòng không cung cấp toàn bộ thông tin nhận
+                  dạng quan trọng trong phần này. Việc xác nhận quyền sở hữu cuối cùng nên được thực hiện khi hai bên
+                  liên hệ và gặp trực tiếp. Thông tin liên hệ sẽ chỉ hiển thị sau khi trả lời đúng.
+                </p>
+              </div>
+            </fieldset>
+            <div class="form-actions">
+              <button type="button" class="button button-secondary">Hủy</button>
+              <button type="submit" class="button button-primary">Đăng bài</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Đăng bài đồ thất lạc - Lost & Found System</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="1.css" />
+  </head>
+  <body>
+    <div class="mn-hnh-ng-bi-mt">
+      <header class="header">
+        <nav class="navbar">
+          <div class="navbar-left">
+            <div class="logo-container">
+              <span class="logo-text">L&F</span>
+              <span class="logo-subtitle">LOST & FOUND SYSTEM</span>
+            </div>
+            <span class="brand-name">DUE</span>
+          </div>
+          <ul class="navbar-menu">
+            <li><a href="#" class="nav-link">Khám phá</a></li>
+            <li><a href="#" class="nav-link">Danh sách đồ thất lạc</a></li>
+            <li><a href="#" class="nav-link nav-link-active">Đăng tin</a></li>
+          </ul>
+          <div class="navbar-right">
+            <button class="notification-btn" aria-label="Thông báo">
+              <img class="notification-icon" src="img/mdi-light-bell.svg" alt="" />
+              <span class="notification-badge">3</span>
+            </button>
+            <div class="user-profile">
+              <span class="user-greeting">Chào, Minh Anh</span>
+              <div class="user-avatar">M</div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main class="main-content">
+        <button class="back-button">
+          <img src="img/vector-39.svg" alt="" />
+          <span>Quay lại</span>
+        </button>
+        <section class="form-container">
+          <h1 class="form-title">Đăng bài đồ nhặt được</h1>
+          <div class="tab-container">
+            <button class="tab-button" type="button">Đồ bị mất</button>
+            <button class="tab-button tab-button-active" type="button">Đồ nhặt được</button>
+          </div>
+          <form class="post-form" id="foundItemForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="itemGroup" class="form-label">Nhóm đồ <span class="required">*</span></label>
+                <div class="select-wrapper">
+                  <select id="itemGroup" name="itemGroup" class="form-select" required>
+                    <option value="">Chọn nhóm đồ</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="itemType" class="form-label">Loại đồ <span class="required">*</span></label>
+                <div class="select-wrapper">
+                  <select id="itemType" name="itemType" class="form-select" required disabled>
+                    <option value="">Chọn nhóm đồ trước</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="itemColor" class="form-label">Màu sắc <span class="required">*</span></label>
+                <div class="select-wrapper">
+                  <select id="itemColor" name="itemColor" class="form-select" required>
+                    <option value="">Chọn màu sắc</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="areaType" class="form-label">Loại khu vực nhặt <span class="required">*</span></label>
+                <div class="select-wrapper">
+                  <select id="areaType" name="areaType" class="form-select" required>
+                    <option value="">Chọn loại khu vực</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="building" class="form-label">Khu/Dãy/Tòa <span class="required">*</span></label>
+                <div class="select-wrapper">
+                  <select id="building" name="building" class="form-select" required disabled>
+                    <option value="">Chọn loại khu vực trước</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="specificLocation" class="form-label">Địa điểm cụ thể <span class="required">*</span></label>
+                <div class="select-wrapper">
+                  <select id="specificLocation" name="specificLocation" class="form-select" required disabled>
+                    <option value="">Chọn khu/dãy/tòa trước</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-group-full">
+              <label for="identifyingFeatures" class="form-label"
+                >Đặc điểm nhận dạng <span class="required">*</span></label
+              >
+              <textarea
+                id="identifyingFeatures"
+                name="identifyingFeatures"
+                class="form-textarea"
+                placeholder="Mô tả đặc điểm nổi bật..."
+                required
+              ></textarea>
+            </div>
+            <div class="form-group form-group-full">
+              <label for="detailedDescription" class="form-label">Mô tả chi tiết</label>
+              <textarea
+                id="detailedDescription"
+                name="detailedDescription"
+                class="form-textarea form-textarea-large"
+                placeholder="Mô tả thêm thông tin chi tiết..."
+              ></textarea>
+            </div>
+            <div class="form-group form-group-full">
+              <label class="form-label">Thời gian nhặt <span class="required">*</span></label>
+              <div class="datetime-container">
+                <div class="datetime-group">
+                  <label for="foundDate" class="datetime-label">Ngày mất</label>
+                  <div class="datetime-input-wrapper">
+                    <input
+                      type="date"
+                      id="foundDate"
+                      name="foundDate"
+                      class="datetime-input"
+                      placeholder="DD/MM/YYYY"
+                      required
+                    />
+                    <img class="datetime-icon" src="img/stash-calendar.svg" alt="" />
+                  </div>
+                </div>
+                <div class="datetime-group">
+                  <label for="foundTimeFrom" class="datetime-label">Từ</label>
+                  <div class="datetime-input-wrapper">
+                    <input
+                      type="time"
+                      id="foundTimeFrom"
+                      name="foundTimeFrom"
+                      class="datetime-input"
+                      placeholder="--:--"
+                      required
+                    />
+                    <img class="datetime-icon" src="img/basil-clock-outline.svg" alt="" />
+                  </div>
+                </div>
+                <div class="datetime-group">
+                  <label for="foundTimeTo" class="datetime-label">Đến</label>
+                  <div class="datetime-input-wrapper">
+                    <input
+                      type="time"
+                      id="foundTimeTo"
+                      name="foundTimeTo"
+                      class="datetime-input"
+                      placeholder="--:--"
+                      required
+                    />
+                    <img class="datetime-icon" src="img/basil-clock-outline.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-group-full">
+              <label class="form-label">Hình ảnh (Tối đa 3 ảnh)</label>
+              <div class="image-upload-container">
+                <input
+                  type="file"
+                  id="imageUpload"
+                  name="images"
+                  accept="image/png,image/jpeg"
+                  multiple
+                  class="image-upload-input"
+                  aria-label="Tải ảnh lên"
+                />
+                <label for="imageUpload" class="image-upload-label">
+                  <img class="upload-icon" src="img/material-symbols-light-upload-rounded.svg" alt="" />
+                  <span class="upload-text">Nhấn để tải ảnh lên</span>
+                  <span class="upload-hint">PNG, JPG tối đa 5MB mỗi ảnh</span>
+                </label>
+              </div>
+            </div>
+            <fieldset class="contact-section">
+              <legend class="contact-title">Phương thức liên hệ</legend>
+              <div class="contact-option">
+                <div class="contact-option-header">
+                  <input type="checkbox" id="showPhone" name="showPhone" class="contact-checkbox" />
+                  <label for="showPhone" class="contact-label">Hiển thị số điện thoại</label>
+                </div>
+                <p class="contact-description">Người tìm đồ có thể liên hệ trực tiếp qua số điện thoại của bạn</p>
+                <div class="phone-display">
+                  <label for="phoneNumber" class="phone-label">Số điện thoại <span class="required">*</span></label>
+                  <input
+                    type="tel"
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    class="phone-input"
+                    value="0905444123"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="contact-option">
+                <div class="contact-option-header">
+                  <input type="checkbox" id="showFacebook" name="showFacebook" class="contact-checkbox" />
+                  <label for="showFacebook" class="contact-label">Hiển thị Facebook</label>
+                </div>
+                <p class="contact-description">Người tìm đồ có thể liên hệ qua tài khoản Facebook của bạn</p>
+              </div>
+            </fieldset>
+            <div class="form-actions">
+              <button type="button" class="btn btn-cancel">Hủy</button>
+              <button type="submit" class="btn btn-submit">Đăng bài</button>
+            </div>
+          </form>
+          <form class="post-form post-form-lost" id="lostItemForm" hidden>
+            <h1 class="form-title">Đăng bài đồ mất</h1>
+            <div class="tab-container">
+              <button class="tab-button tab-button-active" type="button">Đồ bị mất</button>
+              <button class="tab-button" type="button">Đồ nhặt được</button>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="lostItemGroup" class="form-label">Nhóm đồ <span class="required">*</span></label>
+                <div class="select-wrapper">
+                  <select id="lostItemGroup" name="itemGroup" class="form-select" required>
+                    <option value="">Chọn nhóm đồ</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="lostItemType" class="form-label">Loại đồ <span class="required">*</span></label>
+                <div class="select-wrapper">
+                  <select id="lostItemType" name="itemType" class="form-select" required disabled>
+                    <option value="">Chọn nhóm đồ trước</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="lostItemColor" class="form-label">Màu sắc <span class="required">*</span></label>
+                <div class="select-wrapper">
+                  <select id="lostItemColor" name="itemColor" class="form-select" required>
+                    <option value="">Chọn màu sắc</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="lostAreaType" class="form-label">Loại khu vực mất <span class="required">*</span></label>
+                <div class="select-wrapper">
+                  <select id="lostAreaType" name="areaType" class="form-select" required>
+                    <option value="">Chọn loại khu vực</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="lostBuilding" class="form-label">Khu/Dãy/Tòa <span class="required">*</span></label>
+                <div class="select-wrapper">
+                  <select id="lostBuilding" name="building" class="form-select" required disabled>
+                    <option value="">Chọn loại khu vực trước</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="lostSpecificLocation" class="form-label">Địa điểm cụ thể</label>
+                <div class="select-wrapper">
+                  <select id="lostSpecificLocation" name="specificLocation" class="form-select" disabled>
+                    <option value="">Chọn khu/dãy/tòa trước</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-group-full">
+              <label for="lostIdentifyingFeatures" class="form-label"
+                >Đặc điểm nhận dạng <span class="required">*</span></label
+              >
+              <textarea
+                id="lostIdentifyingFeatures"
+                name="identifyingFeatures"
+                class="form-textarea"
+                placeholder="Mô tả đặc điểm nổi bật..."
+                required
+              ></textarea>
+            </div>
+            <div class="form-group form-group-full">
+              <label for="lostDetailedDescription" class="form-label">Mô tả chi tiết</label>
+              <textarea
+                id="lostDetailedDescription"
+                name="detailedDescription"
+                class="form-textarea form-textarea-large"
+                placeholder="Mô tả thêm thông tin chi tiết..."
+              ></textarea>
+            </div>
+            <div class="form-group form-group-full">
+              <label class="form-label">Thời gian mất <span class="required">*</span></label>
+              <div class="datetime-container">
+                <div class="datetime-group">
+                  <label for="lostDate" class="datetime-label">Ngày mất</label>
+                  <div class="datetime-input-wrapper">
+                    <input
+                      type="date"
+                      id="lostDate"
+                      name="lostDate"
+                      class="datetime-input"
+                      placeholder="DD/MM/YYYY"
+                      required
+                    />
+                    <img class="datetime-icon" src="img/stash-calendar.svg" alt="" />
+                  </div>
+                </div>
+                <div class="datetime-group">
+                  <label for="lostTimeFrom" class="datetime-label">Từ</label>
+                  <div class="datetime-input-wrapper">
+                    <input
+                      type="time"
+                      id="lostTimeFrom"
+                      name="lostTimeFrom"
+                      class="datetime-input"
+                      placeholder="--:--"
+                      required
+                    />
+                    <img class="datetime-icon" src="img/basil-clock-outline.svg" alt="" />
+                  </div>
+                </div>
+                <div class="datetime-group">
+                  <label for="lostTimeTo" class="datetime-label">Đến</label>
+                  <div class="datetime-input-wrapper">
+                    <input
+                      type="time"
+                      id="lostTimeTo"
+                      name="lostTimeTo"
+                      class="datetime-input"
+                      placeholder="--:--"
+                      required
+                    />
+                    <img class="datetime-icon" src="img/basil-clock-outline.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-group-full">
+              <label class="form-label">Hình ảnh (Tối đa 3 ảnh)</label>
+              <div class="image-upload-container">
+                <input
+                  type="file"
+                  id="lostImageUpload"
+                  name="images"
+                  accept="image/png,image/jpeg"
+                  multiple
+                  class="image-upload-input"
+                  aria-label="Tải ảnh lên"
+                />
+                <label for="lostImageUpload" class="image-upload-label">
+                  <img class="upload-icon" src="img/material-symbols-light-upload-rounded.svg" alt="" />
+                  <span class="upload-text">Nhấn để tải ảnh lên</span>
+                  <span class="upload-hint">PNG, JPG tối đa 5MB mỗi ảnh</span>
+                </label>
+              </div>
+            </div>
+            <fieldset class="contact-section">
+              <legend class="contact-title">Phương thức liên hệ</legend>
+              <div class="contact-option">
+                <div class="contact-option-header">
+                  <input type="checkbox" id="lostShowPhone" name="showPhone" class="contact-checkbox" />
+                  <label for="lostShowPhone" class="contact-label">Hiển thị số điện thoại</label>
+                </div>
+                <p class="contact-description">Người tìm đồ có thể liên hệ trực tiếp qua số điện thoại của bạn</p>
+                <div class="phone-display">
+                  <label for="lostPhoneNumber" class="phone-label">Số điện thoại <span class="required">*</span></label>
+                  <input
+                    type="tel"
+                    id="lostPhoneNumber"
+                    name="phoneNumber"
+                    class="phone-input"
+                    value="0905444123"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="contact-option">
+                <div class="contact-option-header">
+                  <input type="checkbox" id="lostShowFacebook" name="showFacebook" class="contact-checkbox" />
+                  <label for="lostShowFacebook" class="contact-label">Hiển thị Facebook</label>
+                </div>
+                <p class="contact-description">Người tìm đồ có thể liên hệ qua tài khoản Facebook của bạn</p>
+              </div>
+            </fieldset>
+            <div class="form-actions">
+              <button type="button" class="btn btn-cancel">Hủy</button>
+              <button type="submit" class="btn btn-submit">Đăng bài</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
