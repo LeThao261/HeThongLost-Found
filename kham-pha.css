@@ -1,0 +1,70 @@
+/* ============================================================
+   kham-pha.css  –  Màn hình Khám phá (Trang chủ tìm kiếm)
+   Phụ thuộc: shared.css
+   ============================================================ */
+
+/* ─── SEARCH CARD ─── */
+.search-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--slate-200);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-md);
+}
+.search-card h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--slate-800);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+/* ─── SECTION HEADER ─── */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.section-header-left h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--slate-800);
+  letter-spacing: -0.02em;
+}
+.section-header-left p {
+  font-size: 0.78rem;
+  color: var(--slate-400);
+  margin-top: 3px;
+}
+
+/* ─── POSTS GRID (4 cột) ─── */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 1024px) { .posts-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px)  { .posts-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px)  { .posts-grid { grid-template-columns: 1fr; } }
+
+/* ─── VIEW ALL LINK ─── */
+.view-all-wrap {
+  text-align: center;
+  margin-top: 2rem;
+}
+.view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--indigo-600);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: gap 0.15s;
+}
+.view-all-link:hover { gap: 10px; }

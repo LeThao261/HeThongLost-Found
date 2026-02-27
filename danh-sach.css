@@ -1,0 +1,116 @@
+/* ============================================================
+   danh-sach.css  –  Màn hình Danh sách đồ thất lạc
+   Phụ thuộc: shared.css
+   ============================================================ */
+
+/* ─── PAGE HEADER ─── */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.page-header h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--slate-800);
+  letter-spacing: -0.025em;
+}
+#postCountText {
+  font-size: 0.85rem;
+  color: var(--slate-500);
+  margin-top: 4px;
+}
+
+/* ─── TOGGLE FILTER BUTTON ─── */
+.btn-toggle-filter {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: white;
+  border: 1.5px solid var(--slate-200);
+  color: var(--slate-700);
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 0.825rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+}
+.btn-toggle-filter:hover { border-color: var(--indigo-500); color: var(--indigo-600); }
+
+/* ─── FILTER CARD ─── */
+.filter-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--slate-200);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.25s ease;
+}
+.filter-card.hidden { display: none; }
+
+/* ─── TABS ROW ─── */
+.tabs-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+/* ─── POSTS GRID (3 cột) ─── */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px) { .posts-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .posts-grid { grid-template-columns: 1fr; } }
+
+/* Override post-thumb height for this page (taller) */
+.post-thumb { height: 160px; }
+
+/* ─── EMPTY RESET BUTTON ─── */
+.btn-empty-reset {
+  margin-top: 16px;
+  background: transparent;
+  border: 1.5px solid var(--indigo-500);
+  color: var(--indigo-600);
+  border-radius: 10px;
+  padding: 9px 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-empty-reset:hover { background: var(--indigo-50); }
+
+/* ─── PAGINATION ─── */
+.pagination-wrapper {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.btn-page {
+  background: white;
+  border: 1.5px solid var(--slate-200);
+  color: var(--slate-700);
+  border-radius: 10px;
+  padding: 9px 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-page:hover:not(:disabled) { border-color: var(--indigo-500); color: var(--indigo-600); }
+.btn-page:disabled { opacity: 0.4; cursor: not-allowed; }
+.page-info { font-size: 0.82rem; color: var(--slate-400); font-weight: 500; }

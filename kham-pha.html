@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khám phá – L&F DUE</title>
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="kham-pha.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a class="nav-brand" href="kham-pha.html">
+      <div class="nav-logo">L&amp;F</div>
+      <div class="nav-title">
+        <strong>DUE</strong>
+        <small>Lost &amp; Found System</small>
+      </div>
+    </a>
+
+    <div class="nav-links">
+      <a href="kham-pha.html" class="nav-link active">Khám phá</a>
+      <a href="danh-sach.html" class="nav-link">Danh sách đồ thất lạc</a>
+      <a href="#" class="nav-link">Đăng tin</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-divider"></div>
+      <button class="nav-icon-btn" title="Thông báo">
+        🔔
+        <span class="nav-notif-badge">3</span>
+      </button>
+      <div class="nav-divider"></div>
+      <div class="nav-user">
+        <span class="nav-user-name">Chào, Minh Anh</span>
+        <div class="nav-avatar">M</div>
+        <span class="nav-chevron">▾</span>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- SEARCH / FILTER CARD -->
+    <div class="search-card">
+      <h3>Bạn đang tìm kiếm thứ gì?</h3>
+
+      <!-- Row 1: Loại bài đăng | Nhóm đồ | Loại đồ | Từ ngày | Đến ngày -->
+      <div class="filter-row-1">
+        <div class="filter-field">
+          <label for="loaiBaiSelect">Loại bài đăng</label>
+          <select id="loaiBaiSelect">
+            <option value="">Tất cả</option>
+            <option value="Mat">Mất</option>
+            <option value="Nhat">Nhặt</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="nhomDoSelect">Nhóm đồ</label>
+          <select id="nhomDoSelect">
+            <option value="">Tất cả nhóm đồ</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="loaiDoSelect">Loại đồ</label>
+          <select id="loaiDoSelect" disabled>
+            <option value="">Chọn nhóm đồ trước</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="tuNgayInput">Từ ngày</label>
+          <input type="datetime-local" id="tuNgayInput" />
+        </div>
+        <div class="filter-field">
+          <label for="denNgayInput">Đến ngày</label>
+          <input type="datetime-local" id="denNgayInput" />
+        </div>
+      </div>
+
+      <!-- Row 2: Loại khu vực | Khu/Dãy/Tòa | Địa điểm | Màu sắc | [Tìm] [Reset] -->
+      <div class="filter-row-2">
+        <div class="filter-field">
+          <label for="capMotSelect">Loại khu vực</label>
+          <select id="capMotSelect">
+            <option value="">Mọi nơi trong trường</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="capHaiSelect">Khu/Dãy/Tòa</label>
+          <select id="capHaiSelect">
+            <option value="">Mọi nơi trong trường</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="capBaSelect">Địa điểm</label>
+          <select id="capBaSelect">
+            <option value="">Mọi nơi trong trường</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="mauSacSelect">Màu sắc</label>
+          <select id="mauSacSelect">
+            <option value="">Tất cả màu</option>
+          </select>
+        </div>
+        <button type="button" id="searchBtn" class="btn-search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Tìm kiếm
+        </button>
+        <button type="button" id="resetBtn" class="btn-reset-icon" title="Đặt lại">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        </button>
+      </div>
+
+      <div id="timeError" class="filter-error d-none">Khoảng thời gian không hợp lệ.</div>
+    </div>
+
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+      <div class="section-header-left">
+        <h3>Tin đăng mới nhất</h3>
+        <p id="updateTime">Đang tải...</p>
+      </div>
+      <div class="tab-group">
+        <button class="tab-btn active" data-tab="">TẤT CẢ</button>
+        <button class="tab-btn" data-tab="Mat">ĐỒ MẤT</button>
+        <button class="tab-btn" data-tab="Nhat">ĐỒ NHẶT</button>
+      </div>
+    </div>
+
+    <!-- POSTS -->
+    <div id="emptyState" class="empty-state d-none">
+      <div style="font-size:2.5rem;margin-bottom:12px">🔍</div>
+      <h5 id="emptyTitle">Không tìm thấy bài đăng phù hợp.</h5>
+      <p id="emptyDescription">Hãy thử thay đổi hoặc xóa bớt bộ lọc tìm kiếm.</p>
+    </div>
+
+    <div id="postsGrid" class="posts-grid"></div>
+
+    <div class="view-all-wrap" id="viewAllWrap">
+      <a class="view-all-link" href="danh-sach.html">
+        Xem tất cả bài đăng <span>→</span>
+      </a>
+    </div>
+  </main>
+
+  <script src="kham-pha.js"></script>
+</body>
+</html>
