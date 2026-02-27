@@ -1,4 +1,5 @@
-# L&F DUE – Cấu trúc file UI (Chức năng Tìm kiếm các bài đăng - Xem danh sách các bài đăng
+# L&F DUE – Cấu trúc file UI 
+Chức năng Tìm kiếm các bài đăng - Xem danh sách các bài đăng
 
 ## Danh sách file
 
