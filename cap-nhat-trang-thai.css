@@ -1,0 +1,272 @@
+/* File CSS riêng cho màn cap-nhat-trang-thai (để nộp bài) */
+
+/* Hover và tab */
+.hover-zoom {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.15s ease;
+  cursor: pointer;
+}
+.hover-zoom:hover,
+.hover-zoom:focus {
+  transform: scale(1.06);
+  outline: none;
+  background: rgba(15, 23, 42, 0.05);
+}
+
+.filter-bar .tab {
+  background: transparent;
+  border: 1px solid transparent;
+}
+.filter-bar .tab.active {
+  background: #ffffff;
+  border: 1px solid var(--border);
+}
+.filter-bar .tab .tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 18px;
+  padding: 0 6px;
+  margin-left: 6px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 11px;
+}
+
+.primary-btn.hover-zoom:hover,
+.primary-btn.hover-zoom:focus {
+  background: #6a2fd6;
+  color: #ffffff;
+  transform: scale(1.04);
+}
+
+.nav a:hover,
+.nav a:focus {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* Action button */
+.action-btn {
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, transform 0.08s ease;
+}
+.action-btn:hover,
+.action-btn:focus {
+  border-color: #94a3b8;
+  background: #f8fafc;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+}
+.action-btn:active {
+  transform: scale(0.98);
+  background: #e2e8f0;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.12);
+}
+
+/* Notification + account dropdown */
+.top-right {
+  position: relative;
+}
+.notif-wrapper {
+  position: relative;
+}
+.notif-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 320px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+  padding: 12px;
+  display: none;
+  z-index: 10;
+}
+.notif-dropdown.open {
+  display: block;
+}
+.notif-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: var(--text);
+}
+.notif-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 260px;
+  overflow: auto;
+}
+.notif-item {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #ffffff;
+}
+.notif-item.unread {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  font-weight: 600;
+}
+.notif-title {
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.4;
+}
+.notif-meta {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.notif-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+.link-btn {
+  background: transparent;
+  border: none;
+  color: #7c3aed;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 8px;
+}
+
+.account-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.account-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 12px;
+}
+.account-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 220px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+  padding: 8px;
+  display: none;
+  z-index: 10;
+}
+.account-dropdown.open {
+  display: block;
+}
+.account-item {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+}
+.account-item:hover,
+.account-item:focus {
+  background: #f8fafc;
+  outline: none;
+}
+.account-item.danger {
+  color: #ef4444;
+}
+
+/* Modal xác nhận */
+#confirmModal .modal-card {
+  border-radius: 24px;
+  padding: 28px 32px 24px;
+  max-width: 420px;
+  width: min(420px, 92vw);
+  align-items: center;
+  text-align: center;
+  box-shadow:
+    0 22px 60px rgba(15, 23, 42, 0.18),
+    0 40px 120px rgba(15, 23, 42, 0.22);
+}
+.confirm-icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #ecfdf3;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.confirm-icon-circle.danger {
+  background: #fff1f2;
+  border-color: #fecdd3;
+  color: #ef4444;
+}
+#confirmModal .modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px;
+}
+#confirmModal .modal-text {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0 0 20px;
+}
+#confirmModal .modal-actions {
+  width: 100%;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.btn-outline-gray {
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 14px;
+  padding: 8px 18px;
+  cursor: pointer;
+}
+.btn-outline-gray:hover {
+  background: #f8fafc;
+}
+
+.btn-confirm {
+  border-radius: 999px;
+  border: none;
+  background: #16a34a;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+.btn-confirm:hover {
+  background: #15803d;
+}
+.btn-confirm.danger {
+  background: #ef4444;
+}
+.btn-confirm.danger:hover {
+  background: #dc2626;
+}
+
